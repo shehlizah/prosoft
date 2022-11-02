@@ -37,19 +37,19 @@ class ContactController extends Controller
         ];
  
         // Mail::to($email)->send(new \App\Mail\ContactUs($body));
-
-        // return redirect()->back()->with('status','Your message has been sent successfully!');
-        if(Mail::to($email)->send(new ContactUs($body))){
-            // dd("Mail Send Successfully");            
-            echo '<script>swal("Sent!", "We will get back to you soon.","success");  </script>';
-            return back()->with('status','Mail sent successfully');;
-        }
-        else{
-            // dd("Mail Not Sent");            
-            return back()->with('status','Mail not sent!');;
-        }
+        Mail::to($email)->send(new ContactUs($body));;
+        return redirect()->back()->with('status','Your message has been sent successfully!');
+    //     if(Mail::to($email)->send(new ContactUs($body))){
+    //         // dd("Mail Send Successfully");            
+    //         // echo '<script>swal("Sent!", "We will get back to you soon.","success");  </script>';
+    //         return back()->with('status','Mail sent successfully');;
+    //     }
+    //     else{
+    //         // dd("Mail Not Sent");            
+    //         return back()->with('status','Mail not sent!');;
+    //     }
         
+    // }
     }
-
 }
 
